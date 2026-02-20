@@ -1,3 +1,5 @@
+package Personajes;
+
 public class Enemigo extends Personaje{
     private static final String[] nombres = {"Orco", "Troll", "Esqueleto", "Dragón", "Goblin"};
 
@@ -13,15 +15,15 @@ public class Enemigo extends Personaje{
     }
 
     /**
-     * 0.8 indica el minimo, 80% del ataque que tiene los enemigos
-     * 0.4 es el rango de variacion
+     * 0.9 indica el minimo, 80% del ataque que tiene los enemigos
+     * 0.5 es el rango de variacion
      * @param objetivo
      */
     @Override
     public void atacar(Personaje objetivo) {
-        int danio = (int)(getAtaque() * (0.8 + Math.random() * 0.4));
-        //                               ↑ mínimo               ↑ máximo - mínimo (1.2 - 0.8)
-        System.out.println(getNombre() + " lanza un hechizo sobre " +  objetivo.getNombre() + " causando" + danio + " de daño.");
+        int danio = (int)(getAtaque() * (0.9 + Math.random() * 0.5));
+        //                               ↑ mínimo               ↑ máximo - mínimo (1.4 - 0.9)
+        System.out.println(getNombre() + " lanza un ataque " +  objetivo.getNombre() + " de " + danio + " de daño.");
         objetivo.recibirDanio(danio);
     }
 }

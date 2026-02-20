@@ -1,4 +1,8 @@
-public class Mago extends Personaje implements Curable{
+package Personajes;
+
+
+
+public class Mago extends Personaje implements Curable {
     //Constante para definir la vida inicial del mago
     private static final int vida = 90;
 
@@ -22,7 +26,7 @@ public class Mago extends Personaje implements Curable{
     public void atacar(Personaje objetivo) {
         int danio = (int)(getAtaque() * (0.7 + Math.random() * 0.6));
         //                               ↑ mínimo               ↑ máximo - mínimo (1.4 - 0.7)
-        System.out.println(getNombre() + " lanza un hechizo sobre " +  objetivo.getNombre() + " causando" + danio + " de daño.");
+        System.out.println(getNombre() + " lanza un hechizo sobre " +  objetivo.getNombre() + " de " + danio + " de daño.");
         objetivo.recibirDanio(danio);
     }
 

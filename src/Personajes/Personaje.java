@@ -1,10 +1,15 @@
+package Personajes;
+
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Personaje implements Serializable {
     private String nombre;
     private int salud;
     private int ataque;
     private int defensa;
+    private Map<String,Integer> enemigosDerrotados = new HashMap<>();
 
     public Personaje(String nombre, int salud, int ataque, int defensa) {
         this.nombre = nombre;
@@ -45,6 +50,14 @@ public abstract class Personaje implements Serializable {
         this.defensa = defensa;
     }
 
+    public Map<String, Integer> getEnemigosDerrotados() {
+        return enemigosDerrotados;
+    }
+
+    public void setEnemigosDerrotados(Map<String, Integer> enemigosDerrotados) {
+        this.enemigosDerrotados = enemigosDerrotados;
+    }
+
     public abstract void atacar(Personaje objetivo);
 
     /**
@@ -52,9 +65,10 @@ public abstract class Personaje implements Serializable {
      * @param danio
      */
     public void recibirDanio(int danio){
-        int danioReal = Math.max(0, danio - defensa);
-        //                   ↑ para no tener un daño negativo que sume salud.
+        int danioReal = Math.max(1, danio - defensa);
+        //                   ↑ para no tener un daño negativo que sume salud, siempre va a restar 1 mínimo.
         this.salud -= danioReal;
+        System.out.println(nombre + " tiene una defensa de " + defensa + " DR y solo recibe " + danioReal + " de daño.");
         System.out.println(nombre + " tiene " + salud + " HP restantes.");
     }
 }

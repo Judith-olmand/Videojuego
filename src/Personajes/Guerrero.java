@@ -1,3 +1,5 @@
+package Personajes;
+
 public class Guerrero extends Personaje{
     //Constante para definir la vida inicial del guerrero
     private static final int vida = 160;

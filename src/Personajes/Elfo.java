@@ -1,4 +1,6 @@
-public class Elfo extends Personaje implements Curable{
+package Personajes;
+
+public class Elfo extends Personaje implements Curable {
     //Constante para definir la vida inicial del mago
     private static final int vida = 110;
 
@@ -22,7 +24,7 @@ public class Elfo extends Personaje implements Curable{
     public void atacar(Personaje objetivo) {
         int danio = (int)(getAtaque() * (0.85 + Math.random() * 0.35));
         //                               ↑ mínimo               ↑ máximo - mínimo (1.2 - 0.85)
-        System.out.println(getNombre() + " ataca a " +  objetivo.getNombre() + " causando" + danio + " de daño.");
+        System.out.println(getNombre() + " ataca a " +  objetivo.getNombre() + " de " + danio + " de daño.");
         objetivo.recibirDanio(danio);
     }
 

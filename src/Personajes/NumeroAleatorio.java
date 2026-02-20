@@ -1,3 +1,5 @@
+package Personajes;
+
 public class NumeroAleatorio {
     /**
      * Generador de números aleatorios para atributos
